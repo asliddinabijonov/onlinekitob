@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kitoblar</title>
+</head>
+<body>
+<h2>Kitoblar</h2>
+<br>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button>qoshish</button>
+</form>
+<br>
+{% for kitob in kitoblar %}
+    <h3><a href="/kitoblar/{{ kitob.id }}/kitob/">{{ kitob.nomi }}</a>
+        <button><a href="/kitoblar/{{ kitob.id }}/tahrirlash/">Tahrirlash</a></button>
+    </h3>
+{% endfor %}
+
+</body>
+</html>
